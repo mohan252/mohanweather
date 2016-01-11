@@ -15,6 +15,8 @@ app.get('/', function(request, response) {
 
 app.post('/', function(request, response) {
   console.log(request);
+  response.writeHeader(200, {"Content-Type": "text/html"});  
+        response.write("testing page");  
 });
 
 app.listen(app.get('port'), function() {
