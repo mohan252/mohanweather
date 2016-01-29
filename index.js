@@ -32,6 +32,14 @@ app.post('/receive', function(request, response) {
   response.end();
 });
 
+app.post('/photon', function(request, response) {
+  console.log("logging start ***************: " + JSON.stringify(request.body));
+  console.log("logging end ***************");
+  response.writeHeader(200, {"Content-Type": "application/json"});  
+  response.write("{poststatus:ok}"); 
+  response.end();
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
