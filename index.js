@@ -13,6 +13,12 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/test', function(request, response) {
+  response.writeHeader(200, {"Content-Type": "application/json"});  
+  response.write("{status:ok}"); 
+  response.end();
+});
+
 app.post('/', function(request, response) {
   console.log(request);
   response.writeHeader(200, {"Content-Type": "application/json"});  
