@@ -22,7 +22,7 @@ app.get('/test', function(request, response) {
 });
 
 app.post('/receive', function(request, response) {
-  console.log("logging" + request.body);
+  console.log("logging" + JSON.stringify(request.body));
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{poststatus:ok}"); 
   response.end();
