@@ -3,7 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: false
+  extended: true
 })); 
 
 app.set('port', (process.env.PORT || 5000));
@@ -25,7 +25,7 @@ app.get('/test', function(request, response) {
 });
 
 app.post('/receive', function(request, response) {
-  console.log("logging start ***************: " + request.body);
+  console.log("logging start ***************: " + JSON.stringify(request.body));
   console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{poststatus:ok}"); 
