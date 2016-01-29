@@ -19,7 +19,7 @@ app.get('/test', function(request, response) {
   response.end();
 });
 
-app.post('/', function(request, response) {
+app.post('/receive', function(request, response) {
   console.log(request);
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{status:ok}"); 
