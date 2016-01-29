@@ -1,7 +1,10 @@
 var express = require('express');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var app = express();
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: false
+})); 
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -22,7 +25,8 @@ app.get('/test', function(request, response) {
 });
 
 app.post('/receive', function(request, response) {
-  console.log("logging : " + request.body);
+  console.log("logging start ***************: " + request);
+  console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{poststatus:ok}"); 
   response.end();
