@@ -25,7 +25,7 @@ app.get('/test', function(request, response) {
 });
 
 app.post('/receive', function(request, response) {
-  console.log("logging start ***************: " + request);
+  console.log("logging start ***************: " + request.body);
   console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{poststatus:ok}"); 
