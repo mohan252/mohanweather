@@ -1,5 +1,7 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -20,9 +22,9 @@ app.get('/test', function(request, response) {
 });
 
 app.post('/receive', function(request, response) {
-  console.log(request);
+  console.log(req.body);
   response.writeHeader(200, {"Content-Type": "application/json"});  
-  response.write("{status:ok}"); 
+  response.write("{poststatus:ok}"); 
   response.end();
 });
 
