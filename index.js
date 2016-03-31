@@ -16,10 +16,11 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  // response.render('pages/index');
-  
   var data = cache.get("data");  
   console.log(data);
+  if(data == null){
+    data = [];
+  }
   response.render('pages/index', { "data": data});
   
 });
