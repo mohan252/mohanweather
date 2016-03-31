@@ -29,7 +29,7 @@ app.post('/photon', function(request, response) {
   var d = new Date();
   var dataToBeCached = { "date": d.toLocaleString(), "data": data };
   var cachedData = cache.get("data");
-  if(data != null){
+  if(cachedData != null){
     cachedData.push(dataToBeCached);
   }
   else
