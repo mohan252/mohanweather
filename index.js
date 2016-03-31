@@ -19,25 +19,12 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/test', function(request, response) {
-  response.writeHeader(200, {"Content-Type": "application/json"});  
-  response.write("{status:ok}"); 
-  response.end();
-});
 
-app.post('/receive', function(request, response) {
+app.post('/photon', function(request, response) {
   var data = JSON.stringify(request.body);
   d = new Date();
   cache.put(d.toLocaleString(), 'bar');
   console.log("logging start ***************: " + data);
-  console.log("logging end ***************");
-  response.writeHeader(200, {"Content-Type": "application/json"});  
-  response.write("{poststatus:ok}"); 
-  response.end();
-});
-
-app.post('/photon', function(request, response) {
-  console.log("logging start ***************: " + JSON.stringify(request.body));
   console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
   response.write("{poststatus:ok}"); 
