@@ -6,8 +6,12 @@ setTimeout(function(){
 }, 15000);
 </script>
 <body>
+<style>
+table, th, td {
+   border: 1px solid black;
+}
+</style>
 <div>
-  <%= data %>
   <table>
 <% for(var i=0; i < data.length; i++) { %>
    <tr>
