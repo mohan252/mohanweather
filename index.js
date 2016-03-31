@@ -23,7 +23,7 @@ app.get('/', function(request, response) {
 app.post('/photon', function(request, response) {
   var data = JSON.stringify(request.body);
   d = new Date();
-  cache.put(d.toLocaleString(), 'bar');
+  cache.put(d.toLocaleString(), data);
   console.log("logging start ***************: " + data);
   console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
