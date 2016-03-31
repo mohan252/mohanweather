@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cache = require('memory-cache');
-var moment = require('moment-timezone');
+var moment = require('moment');
 
 var app = express();
 app.use(bodyParser.json());
