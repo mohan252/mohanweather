@@ -34,7 +34,7 @@ app.post('/photon', function(request, response) {
   }
   else
   {
-    var arrayData = new Array();
+    var arrayData = [];
     arrayData.push(dataToBeCached);
     cache.put("data",arrayData);
   }
