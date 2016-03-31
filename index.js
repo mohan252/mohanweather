@@ -19,6 +19,7 @@ app.get('/', function(request, response) {
   // response.render('pages/index');
   
   var data = cache.get("data");  
+  console.log(data);
   response.render('pages/index', data);
   
 });
