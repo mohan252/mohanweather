@@ -20,7 +20,7 @@ app.get('/', function(request, response) {
   
   var data = cache.get("data");  
   console.log(data);
-  response.render('pages/index', { "data": "server data"});
+  response.render('pages/index', { "data": data});
   
 });
 
