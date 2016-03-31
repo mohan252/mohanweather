@@ -34,7 +34,9 @@ app.post('/photon', function(request, response) {
   }
   else
   {
-    cache.put("data",[dataToBeCached]);
+    var arrayData = new Array();
+    arrayData.push(dataToBeCached);
+    cache.put("data",arrayData);
   }
   
   console.log("logging start ***************: " + data);
