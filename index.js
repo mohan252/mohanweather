@@ -16,14 +16,27 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.render('pages/index');
+  // response.render('pages/index');
+  
+  var data = cache.get("data");  
+  response.render('pages/index', data);
+  
 });
 
 
 app.post('/photon', function(request, response) {
   var data = JSON.stringify(request.body);
-  d = new Date();
-  cache.put(d.toLocaleString(), data);
+  var d = new Date();
+  var dataToBeCached = { "date": d.toLocaleString(), "data": data };
+  var cachedData = cache.get("data");
+  if(data != null){
+    cachedData.push(dataToBeCached);
+  }
+  else
+  {
+    cache.put("data",[dataToBeCached]);
+  }
+  
   console.log("logging start ***************: " + data);
   console.log("logging end ***************");
   response.writeHeader(200, {"Content-Type": "application/json"});  
