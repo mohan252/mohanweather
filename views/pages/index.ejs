@@ -8,6 +8,15 @@ setTimeout(function(){
 <body>
 <div>
   <%= data %>
+  <table>
+<% for(var i=0; i < data.length; i++) { %>
+   <tr>
+     <td><%= data[i].date %></td>
+     <td><%= data[i].data %></td>
+   </tr>
+<% } %>
+</table>
+  
 </div>
 </body>
 </html>
